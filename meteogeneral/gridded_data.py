@@ -18,10 +18,10 @@ def getXY(lats,lons,ptlat,ptlon):
     exactlon = lons[wherelon]
     return x,y, exactlat, exactlon
 
-def gettopo():
-    fname = '/uufs/chpc.utah.edu/common/home/u0737349/dsws/topodata/globe30.bin'
+def gettopo(fname,dtype='int16'):
+    #fname = '/uufs/chpc.utah.edu/common/home/u0737349/dsws/topodata/globe30.bin'
     f = open(fname,'r')
-    fdata = N.fromfile(f,dtype='int16')
+    fdata = N.fromfile(f,dtype=dtype)
     # Transposes and reshapes to a lat-lon grid
     # Changes negative values to 0 (sea level)
     xnum = 43200.0
